@@ -8,6 +8,9 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+// CORS：通过设置响应头的方式解决跨域
+app.use(require('cors')());
+
 // 加载 /api 前缀，凡是 /api 开头的都去 ./apiRouter 里面继续匹配
 app.use('/api', require('./apiRouter'));
 
